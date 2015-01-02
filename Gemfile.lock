@@ -6,6 +6,12 @@ GIT
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
 
+GIT
+  remote: https://github.com/afeld/sshkit-interactive.git
+  revision: 907c0f9ec5a6bc4ab0badbba011895eeb2492a5b
+  specs:
+    sshkit-interactive (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -325,6 +331,7 @@ DEPENDENCIES
   settingslogic
   simple_form_object
   simplecov
+  sshkit-interactive!
   turbolinks
   turnip
   uglifier

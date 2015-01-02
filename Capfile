@@ -21,8 +21,7 @@ require_relative 'lib/capistrano/server_with_nat'
 # require 'capistrano/rails/migrations'
 # require 'capistrano/passenger'
 require 'capistrano/console'
-
-require_relative 'lib/capistrano/ssh_command'
+require 'sshkit/interactive'
 
 
 # Load custom tasks from `lib/capistrano/tasks' if you have any defined
