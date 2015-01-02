@@ -22,6 +22,8 @@ require_relative 'lib/capistrano/server_with_nat'
 # require 'capistrano/passenger'
 require 'capistrano/console'
 
+require_relative 'lib/capistrano/ssh_command'
+
 
 # Load custom tasks from `lib/capistrano/tasks' if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
