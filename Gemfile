@@ -37,7 +37,7 @@ group :development do
   gem 'aws-sdk', '2.0.6.pre', require: false
   gem 'capistrano', require: false
   gem 'capistrano-ec2_tagged', require: false
-  gem 'sshkit-interactive', git: 'https://github.com/afeld/sshkit-interactive.git', require: false
+  gem 'sshkit-interactive', require: false
 end
 
 group :test do
