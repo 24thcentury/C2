@@ -167,7 +167,6 @@ describe 'Rejecting a cart with multiple approvers' do
     approval = cart.approvals.first
     get approval_response_url, {
       cart_id: approval.cart_id,
-      user_id: approval.user_id,
       cch: approval.create_api_token!.access_token,
       approver_action: 'reject'
     }
