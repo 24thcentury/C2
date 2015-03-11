@@ -71,21 +71,21 @@ describe Cart do
   describe '#currently_awaiting_approvers' do
     it "gives a consistently ordered list when in parallel" do
       cart = FactoryGirl.create(:cart_with_approvals)
-      last_names = cart.currently_awaiting_approvers.map(&:last_name)
-      expect(last_names).to eq(['Approver1', 'Approver2'])
+      emails = cart.currently_awaiting_approvers.map(&:email_address)
+      expect(emails).to eq(%w(approver1@some-dot-gov.gov approver2@some-dot-gov.gov))
 
       cart.approvals.first.update_attribute(:position, 5)
-      last_names = cart.currently_awaiting_approvers.map(&:last_name)
-      expect(last_names).to eq(['Approver2', 'Approver1'])
+      emails = cart.currently_awaiting_approvers.map(&:email_address)
+      expect(emails).to eq(%w(approver2@some-dot-gov.gov approver1@some-dot-gov.gov))
     end
     it "gives only the first approver when linear" do
       cart = FactoryGirl.create(:cart_with_approvals, flow: 'linear')
-      last_names = cart.currently_awaiting_approvers.map(&:last_name)
-      expect(last_names).to eq(['Approver1'])
+      emails = cart.currently_awaiting_approvers.map(&:email_address)
+      expect(emails).to eq(%w(approver1@some-dot-gov.gov))
 
       cart.approvals.first.update_attribute(:position, 5)
-      last_names = cart.currently_awaiting_approvers.map(&:last_name)
-      expect(last_names).to eq(['Approver2'])
+      emails = cart.currently_awaiting_approvers.map(&:email_address)
+      expect(emails).to eq(%w(approver2@some-dot-gov.gov))
     end
   end
 
